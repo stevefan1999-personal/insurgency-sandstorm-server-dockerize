@@ -4,6 +4,7 @@ RUN     apt-get update && apt-get install --no-install-recommends --no-install-s
         lib32gcc-s1 \
         curl \
         ca-certificates \
+        jq \
         locales && \
         apt-get -y upgrade && \
         locale-gen "en_US.UTF-8" && \
@@ -14,7 +15,6 @@ RUN     apt-get update && apt-get install --no-install-recommends --no-install-s
         curl -o steamcmd_linux.tar.gz "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" && \
         tar zxf steamcmd_linux.tar.gz && \
         rm steamcmd_linux.tar.gz" && \
-        apt-get remove --purge -y curl && \
         apt-get clean autoclean && \
         apt-get autoremove -y && \
         rm -rf /var/lib/{apt,dpkg} /var/{cache,log} && \
